@@ -1,0 +1,12 @@
+sudo: required
+services:
+	- docker
+language: generic 
+
+	
+before_install:
+	- docker build -t yfunaki0726/udemy -f Dockerfile.dev .
+
+script:
+	- docker run -e CI=true yfunaki0726/udemy npm run test
+
